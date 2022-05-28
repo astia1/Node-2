@@ -204,6 +204,7 @@ campsiteRouter.route('/:campsiteId/comments/:commentId')
 })
 
 .delete(authenticate.verifyUser,(req, res, next) => {
+//refactored as learning exercise
     const { campsiteId, commentId } = req.params;
     Campsite.findById(campsiteId)
     .then(campsite => {
