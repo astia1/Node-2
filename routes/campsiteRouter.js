@@ -186,7 +186,7 @@ campsiteRouter.route('/:campsiteId/comments/:commentId')
             })
             .catch(err => next(err));
             } else { //if not the author
-            err = new Error("You are not the author of this comment.");
+            err = new Error("You are not the author.");
             err.statuscode = 403; //Forbidden 
             return next(err);
             }
@@ -220,16 +220,16 @@ campsiteRouter.route('/:campsiteId/comments/:commentId')
             })
             .catch(err => next(err));
             } else { //if not the author
-            err = new Error("You are not the author of this comment.");
+            err = new Error("You are not the author.");
             err.statuscode = 403; //Forbidden 
             return next(err);
             }
         } else if (!campsite) {
-            err = new Error(`Campsite ${req.params.campsiteId} not found`);
+            err = new Error(`Campsite ${campsiteId} not found`);
             err.status = 404;
             return next(err);
         } else {
-            err = new Error(`Comment ${req.params.commentId} not found`);
+            err = new Error(`Comment ${commentId} not found`);
             err.status = 404;
             return next(err);
         }
